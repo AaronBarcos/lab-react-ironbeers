@@ -5,6 +5,8 @@ import { GlobalStyle } from "./styles/globalStyles";
 import { Container, Header, Footer } from "./styles/model";
 import House from "./assets/home.png"
 import SingleBeer from "./pages/SingleBeer";
+import RandomBeer from "./pages/RandomBeer";
+import NewBeer from "./pages/NewBeer"
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/beers" element={<Beers />} />
             <Route path="/beers/:beerId" element={<SingleBeer />} />
+            <Route path="/random-beer" element={<RandomBeer />} />
+            <Route path="/new-beer" element={ <NewBeer /> } />
 
         </Routes>
 
