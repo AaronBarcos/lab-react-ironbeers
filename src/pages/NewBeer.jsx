@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function NewBeer() {
@@ -59,44 +59,54 @@ function NewBeer() {
 
   return (
     <div>
-      <form onSubmit={handleSubmitForm}>
-        <label htmlFor="name">Name: </label>
-        <input type="text" value={nameInput} onChange={handleNameInput} name="name" />
+      <form onSubmit={handleSubmitForm}  style={{display: "flex", flexDirection: "column", margin: "20px"}}>
+        <label htmlFor="name">Name</label>
         <br />
-        <label htmlFor="tagline">Tagline: </label>
-        <input type="text" value={taglineInput} onChange={handleTaglineInput} tagline="tagline" />
+        <input type="text" value={nameInput} onChange={handleNameInput} name="name" style={{borderRadius: "20px"}}/>
         <br />
-        <label htmlFor="description">Description: </label>
+        <label htmlFor="tagline">Tagline</label>
+        <br />
+        <input type="text" value={taglineInput} onChange={handleTaglineInput} tagline="tagline" style={{borderRadius: "20px"}}/>
+        <br />
+        <label htmlFor="description">Description</label>
+        <br />
         <input
           type="text"
           value={descriptionInput}
           onChange={handleDescriptionInput}
           name="description"
+          style={{height: 150, borderRadius: "20px"}}
         />
         <br />
-        <label htmlFor="">First: </label>
-        <input type="text" value={firstInput} onChange={handleFirstInput} />
+        <label htmlFor="">First</label>
         <br />
-        <label htmlFor="">Tips: </label>
-        <input type="text" value={tipsInput} onChange={handleTipsInput} />
+        <input type="text" value={firstInput} onChange={handleFirstInput} style={{borderRadius: "20px"}}/>
         <br />
-        <label htmlFor="attenuation">Attenuation: </label>
+        <label htmlFor="">Tips</label>
+        <br />
+        <input type="text" value={tipsInput} onChange={handleTipsInput} style={{borderRadius: "20px"}}/>
+        <br />
+        <label htmlFor="attenuation">Attenuation</label>
+        <br />
         <input
           type="number"
           value={attenuationInput}
           onChange={handleAttenuationInput}
           name="attenuation"
+          style={{borderRadius: "20px"}}
         />
         <br />
-        <label htmlFor="contributed">Contributed: </label>
+        <label htmlFor="contributed">Contributed</label>
+        <br />
         <input
           type="text"
           value={contributedInput}
           onChange={handleContributedInput}
           name="contributed"
+          style={{borderRadius: "20px"}}
         />
         <br />
-        <button>Create new beer</button>
+        <button style={{padding: "10px", borderRadius: "20px", backgroundColor: "lightblue"}}>Add new</button>
       </form>
     </div>
   );

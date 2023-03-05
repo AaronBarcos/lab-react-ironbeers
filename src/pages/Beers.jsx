@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function Beers() {
 
  const [allBeers, setAllBeers] = useState(null)
+ const [searchInput, setSearchInput] = useState("")
 
  useEffect(() => {
   getDataBeers()
@@ -20,6 +21,17 @@ function Beers() {
   }
  }
 
+ const handleSearchInput = async (event) => {
+  try {
+    setSearchInput(event.target.value)
+    const response = await axios.get(`https://ih-beers-api2.herokuapp.com/beers/search?q=${searchInput}`)
+    setAllBeers(response.data)
+  } catch (error) {
+    console.log(error)
+  }
+ }
+
+
 if (allBeers === null) {
   return (
     <>
@@ -30,6 +42,8 @@ if (allBeers === null) {
 }
   return (
     <div style={{marginLeft: 40, marginTop: 30, display: 'flex', flexDirection: 'column', gap: 15 }}>
+      <label htmlFor="beer">Search a beer:</label>
+      <input type="text" name='beer' value={searchInput} onChange={handleSearchInput} />
       {allBeers.map((eachBeer) => {
         return (
           <div key={eachBeer.name}  >
